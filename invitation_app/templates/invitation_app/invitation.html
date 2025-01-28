@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'invitation_app/styles.css' %}">
+    <title>Invitation</title>
+    <!-- Swiper.js CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <!-- Vue JS Tour -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vue-tour@2.0.0/dist/vue-tour.min.css">
+
+</head>
+<body>
+    <!-- Swiper container -->
+    <div class="swiper-container" id="swiper-container">
+        <div class="swiper-wrapper">
+            <!-- First Slide -->
+            <div class="swiper-slide swiper-slide-one">
+                    <div class="image-container">
+                        INVITATION
+                    </div>
+                    <div class="text-one">
+                        Cher <span class="text-one-span"> {{ invitation.type }}, </span>
+                    </div>
+                    <div class="paragraph">
+                        <p class="paragraph-item">
+                            Depuis 20 ans, nos destins sont liés.  Ensemble, nous avons partagé une vision commune : offrir aux Algériens des solutions de banques digitales toujours plus innovantes. Nos réussites sont le fruit de cet engagement partagé.
+                        </p>
+                        <p class="paragraph-item">
+                            Votre présence à mes côtés serait un honneur et me permettrait de partager avec vous mon enthousiasme pour l'avenir de ce secteur.
+                        </p>
+                    </div>
+                    <div class="text-two">
+                        Réda BENBOUZID, CEO de Beyn
+                    </div>
+                    <div class="dual-text-container">
+                        <div class="text-left">
+                            19 Février </br> 
+                            2025.
+                        </div>
+                        <div class="text-right">
+                            Algiers </br> 
+                            Marriott Hotel </br> 
+                            Bab Ezzouar. 
+                        </div>
+                    </div>
+                    <div class="video-frame">
+                        <button id="play-btn">
+                            <img src="{% static 'images/play-icon.png' %}" alt="Sample Image" class="play-btn-icon"> 
+                        </button>
+                        <iframe id="vimeo-video" 
+                            src="https://player.vimeo.com/video/1050471024?autoplay=0&loop=0&title=0&byline=0&portrait=0&controls=0&transparent=0" 
+                            frameborder="0" 
+                            allow="autoplay; fullscreen" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="btns-section">
+                        <button id="openModalBtn" class="confirme-btn">Je confirme ma présence</button>
+                        <button id="next-slide-btn" class="navigate-btn" v-on:click="goToNextSlide">
+                            Swipez
+                            <img src="{% static 'images/arrow-right.png' %}" class="arrow-icon"> 
+                        </button>
+                    </div>
+            </div>
+            <!-- Modal Structure -->
+            <div id="confirmationModal" class="modal">
+                <div class="modal-content">
+                    <h2 class="confirmation-title">Confirmer votre présence</h2>
+                    <form id="confirmationForm" @submit.prevent="submitForm">
+                        <div class="form-group">
+                            <label for="firstName" class="confirmation-lable">Prénom</label>
+                            <input type="text" id="firstName" v-model="form.firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName" class="confirmation-lable">Nom</label>
+                            <input type="text" id="lastName" v-model="form.lastName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phoneNumber" class="confirmation-lable">Phone</label>
+                            <input type="text" id="phoneNumber" v-model="form.phoneNumber" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" v-model="form.agreedToTerms" required>
+                                <h2 class="terms-condition-text">J'accepte <span class="terms-condition-link" v-on:click="showTermsCondition">les termes et conditions</span></h2>
+                            </label>
+                            <div class="terms-and-conditions" id="terms-and-conditions">
+                                    En participant à cet événement, vous autorisez l’utilisation de vos photos et vidéos prises lors de l'événement sur nos supports de communication, conformément à la loi 18-07 sur la protection des données personnelles. Vous pouvez exercer vos droits d'accès et de rectification en contactant notre DPO à 
+                                    <a href="mailto:dpo@beyn.io" class="terms-condition-email">dpo@beyn.io</a>.
+                            </div>
+                        </div>
+                        <div class="model-btns">
+                            <button type="submit" class="submit-confimration-btn">Je confirme</button>
+                            <button type="button" id="closeModalBtn" class="close-confimration-btn" @click="closeModal">Annuler</button>
+                        </div>
+                    </form>
+                    <div class="success" v-if="successMessage">{{ successMessage }}</div>
+                    <div class="error" v-if="errorMessage">{{ errorMessage }}</div>
+                </div>
+            </div>
+
+            <!-- Second Slide -->
+            <div class="swiper-slide swiper-slide-two">
+                <div class="image-container">
+                    <img src="{% static 'images/event-slogon.png' %}" class="image-logo">
+                </div>
+                <div class="paragraph">
+                    <p class="paragraph-item">
+                        Depuis 20 ans, nos destins sont liés. Ensemble, nous avons partagé une vision commune : offrir aux Algériens des solutions de paiement accessibles et intuitives. Nos réussites sont le fruit de cet engagement partagé.
+                    </p>
+                </div>
+                <div class="programme-container">
+                    <div class="programme-title">
+                        PROGRAMME
+                    </div>
+                    <div class="programme-info">
+                        <div class="programme-info-item">
+                            <div class="programme-info-item-text">Accueil des invités</div>
+                            <div class="programme-info-item-time">18h00 - 18h15</div>
+                        </div>
+                        <div class="programme-info-item">
+                            <div class="programme-info-item-text">Exposition et networking</div>
+                            <div class="programme-info-item-time">18h15 - 18h45</div>
+                        </div>
+                        <div class="programme-info-item">
+                            <div class="programme-info-item-text">Allocution d'ouverture</div>
+                            <div class="programme-info-item-time">18h45 - 19h00</div>
+                        </div>
+                        <div class="programme-info-item">
+                            <div class="programme-info-item-text">Vidéo de présentation</div>
+                            <div class="programme-info-item-time">19h00 - 19h05</div>
+                        </div>
+                        <div class="programme-info-item">
+                            <div class="programme-info-item-text">le paiement mobile</div>
+                            <div class="programme-info-item-time">19h05 - 19h35</div>
+                        </div>
+                        <div class="programme-info-item">
+                            <div class="programme-info-item-text">Orchestre andalous</div>
+                            <div class="programme-info-item-time">19h35 - 20h10</div>
+                        </div>
+                        <div class="programme-info-item">
+                            <div class="programme-info-item-text">Récompense des Beyners</div>
+                            <div class="programme-info-item-time">20h10 - 20h25</div>
+                        </div>
+                        <div class="programme-info-item">
+                            <div class="programme-info-item-text">Mot de clôture</div>
+                            <div class="programme-info-item-time">20h25 - 20h30</div>
+                        </div>
+                        <div class="programme-info-item">
+                            <div class="programme-info-item-text">Dîner</div>
+                            <div class="programme-info-item-time">20h30 - 21h30</div>
+                        </div>
+                    </div>
+                    <div class="rsvp-section">
+                        <div class="rsvp-title">
+                            Ne manquez pas cette occasion ! 
+                        </div>
+                        <div class="rsvp-text">
+                            Votre présence est précieuse pour nous. Confirmez votre présence avant le <span class="rsvp-text-date">05/02.</span>
+                        </div>
+                    </div>
+                    <div class="contact-info">
+                        <div class="contact-info-item">
+                            <div class="contact-info-item-icon">
+                                <img src="{% static 'images/email-icon.png' %}" class="email-icon">
+                            </div>
+                            <div class="contact-info-item-text">
+                                sales@beyn.io
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="contact-info-item-icon">
+                                <img src="{% static 'images/phone-icon.png' %}" class="phone-icon">
+                            </div>
+                            <div class="contact-info-item-text">
+                                +213 560 852 073
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-section">
+                        <div class="footer-section-logo">
+                            <img src="{% static 'images/event-logo.png' %}" class="event-logo">
+                        </div>
+                        <div class="footer-section-text">
+                            Powered by <a href="http://beyn.io/" class="website-link" target="_blank">Beyn.io</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Swiper Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
+</body>
+<!-- Include Swiper.js JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    const confirmationUrl = 'http://127.0.0.1:8000/invitation/submit-invitation/'; 
+    const invitationType = "{{ invitation.type }}";
+    window.CSRF_TOKEN = "{{ csrf_token }}";
+
+</script>
+  
+<!-- Axious -->
+<script type="application/javascript" src="https://cdn.jsdelivr.net/npm/vue@2.7.0"></script>
+<script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js" integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script type="application/javascript" src="{% static 'invitation_app/main.js' %}"></script>
+</html>
