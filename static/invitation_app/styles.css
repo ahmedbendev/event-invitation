@@ -22,7 +22,10 @@
     font-weight: 400; /* 'semibold' is represented by 600 */
     font-style: normal; /* 'bold' is a weight, not a style */
 }
-
+a {
+    color: inherit !important;
+    text-decoration: none !important;
+  }
 /* video styling */
 .video-frame {
     width: 100%; /* Full width */
