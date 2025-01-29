@@ -21,19 +21,21 @@
                     <div class="image-container">
                         INVITATION
                     </div>
-                    <div class="text-one">
-                        Cher <span class="text-one-span"> {{ invitation.type }}, </span>
-                    </div>
-                    <div class="paragraph">
-                        <p class="paragraph-item">
-                            Depuis 20 ans, nos destins sont liés.  Ensemble, nous avons partagé une vision commune : offrir aux Algériens des solutions de banques digitales toujours plus innovantes. Nos réussites sont le fruit de cet engagement partagé.
-                        </p>
-                        <p class="paragraph-item">
-                            Votre présence à mes côtés serait un honneur et me permettrait de partager avec vous mon enthousiasme pour l'avenir de ce secteur.
-                        </p>
-                    </div>
-                    <div class="text-two">
-                        Réda BENBOUZID, CEO de Beyn
+                    <div>
+                        <div class="text-one">
+                            Cher <span class="text-one-span"> {{ invitation.text }}, </span>
+                        </div>
+                        <div class="paragraph">
+                            <p class="paragraph-item">
+                                Depuis 20 ans, nos destins sont liés.  Ensemble, nous avons partagé une vision commune : offrir aux Algériens des solutions de banques digitales toujours plus innovantes. Nos réussites sont le fruit de cet engagement partagé.
+                            </p>
+                            <p class="paragraph-item">
+                                Votre présence à mes côtés serait un honneur et me permettrait de partager avec vous mon enthousiasme pour l'avenir de ce secteur.
+                            </p>
+                        </div>
+                        <div class="text-two">
+                            Réda BENBOUZID, CEO de Beyn
+                        </div>
                     </div>
                     <div class="dual-text-container">
                         <div class="text-left">
@@ -83,10 +85,10 @@
                             <input type="text" id="phoneNumber" v-model="form.phoneNumber" required>
                         </div>
                         <div class="form-group">
-                            <label class="checkbox-label">
+                            <div class="checkbox-label">
                                 <input type="checkbox" v-model="form.agreedToTerms" required>
                                 <h2 class="terms-condition-text">J'accepte <span class="terms-condition-link" v-on:click="showTermsCondition">les termes et conditions</span></h2>
-                            </label>
+                            </div>
                             <div class="terms-and-conditions" id="terms-and-conditions">
                                     En participant à cet événement, vous autorisez l’utilisation de vos photos et vidéos prises lors de l'événement sur nos supports de communication, conformément à la loi 18-07 sur la protection des données personnelles. Vous pouvez exercer vos droits d'accès et de rectification en contactant notre DPO à 
                                     <a href="mailto:dpo@beyn.io" class="terms-condition-email">dpo@beyn.io</a>.
@@ -107,7 +109,7 @@
                 <div class="image-container">
                     <img src="{% static 'images/event-slogon.png' %}" class="image-logo">
                 </div>
-                <div class="paragraph">
+                <div class="paragraph-two">
                     <p class="paragraph-item">
                         Depuis 20 ans, nos destins sont liés. Ensemble, nous avons partagé une vision commune : offrir aux Algériens des solutions de paiement accessibles et intuitives. Nos réussites sont le fruit de cet engagement partagé.
                     </p>
@@ -168,7 +170,7 @@
                                 <img src="{% static 'images/email-icon.png' %}" class="email-icon">
                             </div>
                             <div class="contact-info-item-text">
-                                sales@beyn.io
+                                <a href="mailto:dpo@beyn.io" class="contact-info-item-text-link">sales@beyn.io</a>
                             </div>
                         </div>
                         <div class="contact-info-item">

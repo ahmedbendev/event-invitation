@@ -53,25 +53,25 @@ var app = new Vue({
             phone_number: this.form.phoneNumber,
             agreed_to_terms: this.form.agreedToTerms,
         };
-        this.closeModal();
-        this.resetForm();
-        // axios.post('http://127.0.0.1:8000/invitation/submit-invitation/', formData)
-        //     .then(response => {
-        //         console.log('Invitation submitted successfully:', response.data);
-        //         this.successMessage = 'Merci pour votre confirmation. Nous vous attendons avec impatience !';
-        //         this.errorMessage = '';
-        //         this.closeModal();
-        //         this.resetForm();
-        //     })
-        //     .catch(error => {
-        //         console.error('Error submitting invitation:', error);
-        //         this.successMessage = '';
-        //         if (error.response && error.response.data.errors) {
-        //             this.errorMessage = 'Veuillez corriger les erreurs suivantes :';
-        //         } else {
-        //             this.errorMessage = 'Une erreur est survenue. Veuillez réessayer.';
-        //         }
-        //     });
+        console.log("formData",formData);
+
+        axios.post('http://127.0.0.1:8000/invitation/submit-invitation/', formData)
+            .then(response => {
+                console.log('Invitation submitted successfully:', response.data);
+                this.successMessage = 'Merci pour votre confirmation. Nous vous attendons avec impatience !';
+                this.errorMessage = '';
+                this.closeModal();
+                this.resetForm();
+            })
+            .catch(error => {
+                console.error('Error submitting invitation:', error);
+                this.successMessage = '';
+                if (error.response && error.response.data.errors) {
+                    this.errorMessage = 'Veuillez corriger les erreurs suivantes :';
+                } else {
+                    this.errorMessage = 'Une erreur est survenue. Veuillez réessayer.';
+                }
+            });
     },
     // submitForm() {
     //     console.log(confirmationUrl);

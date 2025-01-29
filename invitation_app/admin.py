@@ -35,21 +35,9 @@ class InvitationAdmin(admin.ModelAdmin):
 
 
 class ConfirmationAdmin(admin.ModelAdmin):
-    list_display = ('first_name', 'last_name', 'phone_number', 'confirmed', 'invitation_type', 'created_at')
+    list_display = ('first_name', 'last_name', 'phone_number', 'invitation_type','agreed_to_terms',  'confirmed_at')
     search_fields = ('first_name', 'last_name', 'phone_number')
     list_filter = ('confirmed', 'invitation_type')  # Filter confirmations based on 'confirmed' status and invitation type
-    date_hierarchy = 'created_at'  # Allows filtering by date
-
-    # Optional: You can define how the form should appear in the admin interface
-    fieldsets = (
-        (None, {
-            'fields': ('first_name', 'last_name', 'phone_number', 'invitation_type', 'confirmed')
-        }),
-        ('Date Information', {
-            'fields': ('created_at',),
-            'classes': ('collapse',),
-        }),
-    )
 
 # Registering the models in the admin interface
 admin.site.register(Confirmation, ConfirmationAdmin)

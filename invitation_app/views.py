@@ -25,12 +25,13 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from .models import Invitation
-from .serializers import InvitationSerializer
+from .serializers import ConfirmationSerializer
 
 class InvitationSubmissionView(APIView):
     def post(self, request):
         # Deserialize the incoming data
-        serializer = InvitationSerializer(data=request.data)
+        print("Received Data:", request.data)
+        serializer = ConfirmationSerializer(data=request.data)
 
         # Check if the data is valid
         if serializer.is_valid():
