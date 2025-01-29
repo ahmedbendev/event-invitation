@@ -197,6 +197,7 @@ body, html {
     padding-bottom: 1vh;
     font-weight: 500;
     height: 4.5vh;
+    margin-bottom: 1vh;
 }
 
 .text-one-span {
@@ -208,9 +209,8 @@ body, html {
     font-size: 1.7vh;
     text-align: justify;
     line-height: 1.4;
-    margin-top: 2vh;
     font-weight: 400;
-    height: 23vh;
+    height: 24vh;
 }
 .paragraph-two {
     width: 100%;
@@ -231,7 +231,7 @@ body, html {
     font-weight: 600;
     margin-bottom: 1vh;
     height: 3vh;
-    margin-top: 2vh;
+    margin-top: 1vh;
     width: 100%;
 }
 
@@ -285,7 +285,6 @@ button#play-btn {
 }
 .image-container {
     font-size: 4vh;
-    margin-bottom: 1vh;
     font-weight: 600;
     color: #00FF7F;
     height: 5vh;
