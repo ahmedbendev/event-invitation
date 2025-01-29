@@ -362,6 +362,7 @@ input#phoneNumber {
     cursor: pointer;
     color: #000000;
     width: 55%;
+    font-weight: 600;
 }
 .close-confimration-btn{
     padding: 10px 15px;
@@ -373,6 +374,7 @@ input#phoneNumber {
     cursor: pointer;
     color: #000000;
     width: 40%;
+    font-weight: 600;
 }
 .model-btns {
     display: flex;
