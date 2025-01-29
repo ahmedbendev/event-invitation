@@ -55,13 +55,18 @@ var app = new Vue({
         };
         console.log("formData",formData);
 
-        axios.post('http://127.0.0.1:8000/invitation/submit-invitation/', formData)
+        axios.post(confirmationUrl, formData)
             .then(response => {
                 console.log('Invitation submitted successfully:', response.data);
                 this.successMessage = 'Merci pour votre confirmation. Nous vous attendons avec impatience !';
                 this.errorMessage = '';
                 this.closeModal();
                 this.resetForm();
+                // Hide success / error message after 3 seconds
+                setTimeout(() => {
+                  this.successMessage = '';
+                  this.errorMessage = '';
+                }, 3000); 
             })
             .catch(error => {
                 console.error('Error submitting invitation:', error);
@@ -71,76 +76,13 @@ var app = new Vue({
                 } else {
                     this.errorMessage = 'Une erreur est survenue. Veuillez réessayer.';
                 }
+                // Hide success / error message after 3 seconds
+                setTimeout(() => {
+                  this.successMessage = '';
+                  this.errorMessage = '';
+                }, 3000); 
             });
     },
-    // submitForm() {
-    //     console.log(confirmationUrl);
-    //     const formData = {
-    //         first_name: this.form.firstName,
-    //         last_name: this.form.lastName,
-    //         phone_number: this.form.phoneNumber,
-    //         agreed_to_terms: this.form.agreedToTerms,
-    //         invitation_type: this.form.invitationType,
-    //     };
-    //     console.log("formData",formData);
-    //     axios.post(confirmationUrl, formData, {
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //         }
-    //     })
-    //     // axios.post('/invitation/submit-invitation/', formData)
-    //       .then(response => {
-    //         this.successMessage = "Merci pour votre confirmation. Nous vous attendons avec impatience !";
-    //         this.errorMessage = '';
-    //         this.closeModal();
-    //         this.resetForm();
-    //       })
-    //       .catch(error => {
-    //         this.successMessage = '';
-    //         if (error.response && error.response.data.errors) {
-    //           this.errorMessage = "Veuillez corriger les erreurs suivantes :";
-    //           console.error("Validation errors:", error.response.data.errors);
-    //         } else {
-    //           this.errorMessage = "Une erreur est survenue. Veuillez réessayer.";
-    //         }
-    //       });
-    // },
-    // submitForm() {
-    //     console.log(confirmationUrl);
-    //     const formData = {
-    //         first_name: this.form.firstName,
-    //         last_name: this.form.lastName,
-    //         phone_number: this.form.phoneNumber,
-    //         agreed_to_terms: this.form.agreedToTerms,
-    //         invitation_type: this.form.invitationType,
-    //     };
-    //     console.log("formData", formData);
-    
-    //     $.ajax({
-    //         url: confirmationUrl,
-    //         type: 'POST',
-    //         contentType: 'application/json',
-    //         data: JSON.stringify(formData),
-    //         headers: {
-    //             'X-CSRFToken': window.CSRF_TOKEN  // Add CSRF token to headers
-    //         },
-    //         success: (response) => {
-    //             this.successMessage = "Merci pour votre confirmation. Nous vous attendons avec impatience !";
-    //             this.errorMessage = '';
-    //             this.closeModal();
-    //             this.resetForm();
-    //         },
-    //         error: (xhr, status, error) => {
-    //             this.successMessage = '';
-    //             if (xhr.responseJSON && xhr.responseJSON.errors) {
-    //                 this.errorMessage = "Veuillez corriger les erreurs suivantes :";
-    //                 console.error("Validation errors:", xhr.responseJSON.errors);
-    //             } else {
-    //                 this.errorMessage = "Une erreur est survenue. Veuillez réessayer.";
-    //             }
-    //         }
-    //     });
-    // },
     resetForm() {
         this.form = {
             firstName: '',

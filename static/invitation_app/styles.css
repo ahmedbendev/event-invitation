@@ -523,3 +523,21 @@ img.event-logo {
     color: #ffffff;
     text-decoration: none;
 }
+
+.alert {
+    padding: 10px;
+    border-radius: 5px;
+    position: fixed;
+    width: 80%;
+    left: 10%;
+}
+
+.alert-success {
+    background-color: #00ff7f;
+    color: #000000;
+}
+  
+.alert-danger {    
+    background-color: #fc5e5e;
+    color: #ffffff;
+}
