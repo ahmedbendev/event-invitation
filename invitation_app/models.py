@@ -24,8 +24,9 @@ class Invitation(models.Model):
 
     @property
     def unique_url(self):
-        """Generate a unique URL based on the type."""
-        return f"/invitation/{self.type.lower()}"
+        """Generate a unique URL based on the type with full domain."""
+        base_url = "https://www.beyn20years.com"  # Replace with your actual domain
+        return f"{base_url}/invitation/{self.type.lower()}"
 
     def save(self, *args, **kwargs):
         """Generate a QR code for the invitation's unique URL."""
@@ -35,7 +36,7 @@ class Invitation(models.Model):
             box_size=10,
             border=4,
         )
-        qr.add_data(self.unique_url)
+        qr.add_data(self.unique_url)  # Use full URL now
         qr.make(fit=True)
 
         # Create QR code image
