@@ -396,7 +396,7 @@ input[type="checkbox"] {
     margin: 0px;
 }
 .programme-container {
-    width: 100%;
+    width: 100% !important;
 }
 
 input[type="checkbox"]{
@@ -486,7 +486,7 @@ input[type="checkbox"]:checked:after {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    width: 100% !important;
 }
 .contact-info-item {
     display: flex;
