@@ -526,9 +526,10 @@ img.event-logo {
     flex-direction: column;
 }
 .website-link {
-    color: #00ff7f;
-    text-decoration: none;
     font-size: 2vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .contact-info-item-text-link {
     color: #ffffff;
@@ -558,4 +559,11 @@ img.event-logo {
 ;
     flex-direction: column;
     align-items: center;
+}
+.powerd-by-text{
+    font-size: 1vh;
+    margin-bottom: 0.5vh;
+}
+.beyn-logo {
+    width: 8vh;
 }
