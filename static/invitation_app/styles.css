@@ -117,7 +117,6 @@ a {
     color: #00FF7F;
     border-radius: 2px;
     font-size: 1.8vh;
-    text-transform: capitalize;
     cursor: pointer;
 }
 /* Modal Styles */
@@ -221,14 +220,14 @@ body, html {
     font-weight: 400;
 }
 .paragraph-item {
-    margin: 0px 0px 15px 0px !important
+    margin: 0px 0px 10px 0px !important
 }
 
 .text-two {
     text-align: end;
     font-size: 1.8vh;
     color: #00FF7F;
-    font-weight: 600;
+    font-weight: 500;
     margin-bottom: 1vh;
     height: 3vh;
     margin-top: 1vh;
