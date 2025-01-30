@@ -522,6 +522,8 @@ img.event-logo {
 }
 .footer-section-text {
     font-size: 0.8vh;
+    display: flex;
+    flex-direction: column;
 }
 .website-link {
     color: #00ff7f;
