@@ -192,11 +192,11 @@ body, html {
 .text-one {
     width: fit-content;
     text-align: start;
-    font-size: 2.5vh;
+    font-size: 2vh;
     border-bottom: 2px solid #00FF7F;
     padding-bottom: 1vh;
     font-weight: 500;
-    height: 4.5vh;
+    height: 3vh;
     margin-bottom: 1vh;
 }
 
@@ -284,7 +284,7 @@ button#play-btn {
     /* margin-bottom: 20px; */
 }
 .image-container {
-    font-size: 4vh;
+    font-size: 3vh;
     font-weight: 600;
     color: #00FF7F;
     height: 5vh;
