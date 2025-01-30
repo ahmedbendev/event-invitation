@@ -217,7 +217,7 @@ body, html {
     font-size: 1.7vh;
     text-align: justify;
     line-height: 1.4;
-    margin-top: 0vh;
+    margin-top: 2vh;
     font-weight: 400;
 }
 .paragraph-item {
@@ -361,7 +361,7 @@ input#phoneNumber {
     cursor: pointer;
     color: #000000;
     width: 55%;
-    font-weight: 600;
+    font-weight: 600 !important;
 }
 .close-confimration-btn{
     padding: 10px 15px;
@@ -373,7 +373,7 @@ input#phoneNumber {
     cursor: pointer;
     color: #000000;
     width: 40%;
-    font-weight: 600;
+    font-weight: 600 !important;
 }
 .model-btns {
     display: flex;
@@ -412,7 +412,7 @@ input[type="checkbox"]:checked {
 input[type="checkbox"]:checked:after {
     content: '\2713'; /* Unicode checkmark character */
     position: absolute;
-    left: 3px;
+    left: 5px;
     top: 1px;
     font-size: 18px; /* Adjust the font size as needed */
     color:  #ffffff; /* Adjust the color as needed */
@@ -455,7 +455,7 @@ input[type="checkbox"]:checked:after {
     color: #00ff7f;
     font-weight: 700;
     letter-spacing: 1px;
-    margin-bottom: 1vh;
+    margin-bottom: 2vh;
 }
 .programme-info-item {
     display: flex
