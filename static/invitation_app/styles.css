@@ -192,7 +192,7 @@ body, html {
 .text-one {
     width: fit-content;
     text-align: start;
-    font-size: 3vh;
+    font-size: 2.5vh;
     border-bottom: 2px solid #00FF7F;
     padding-bottom: 1vh;
     font-weight: 500;
@@ -206,7 +206,7 @@ body, html {
 
 .paragraph {
     width: 100%;
-    font-size: 1.7vh;
+    font-size: 1.6vh;
     text-align: justify;
     line-height: 1.4;
     font-weight: 400;
@@ -214,7 +214,7 @@ body, html {
 }
 .paragraph-two {
     width: 100%;
-    font-size: 1.7vh;
+    font-size: 1.6vh;
     text-align: justify;
     line-height: 1.4;
     margin-top: 2vh;
@@ -238,7 +238,7 @@ body, html {
 .dual-text-container {
     background: url(/static/images/date-bg.png) no-repeat center center / cover;
     display: flex;
-    padding: 10px 25px;
+    padding: 10px 20px;
     justify-content: space-between;
     align-items: center;
     /* margin-bottom: 2vh; */
@@ -247,12 +247,12 @@ body, html {
 }
 .text-left {
     text-align: start;
-    font-size: 20px;
+    font-size: 2.5vh;
     font-weight: 600;
 }
 .text-right {
     text-align: end;
-    font-size: 14px;
+    font-size: 1.8vh;
 }
 
 button#play-btn {
