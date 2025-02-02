@@ -109,26 +109,46 @@ var app = new Vue({
         document.body.appendChild(script);
       }
     },
-    initializeVimeoPlayer() {
-      const button = document.getElementById("play-btn");
-      const iframe = document.getElementById("vimeo-video");
+  //   initializeVimeoPlayer() {
+  //     const button = document.getElementById("play-btn");
+  //     const iframe = document.getElementById("vimeo-video");
     
-      // Initialize the Vimeo Player
-      const player = new Vimeo.Player(iframe);
+  //     // Initialize the Vimeo Player
+  //     const player = new Vimeo.Player(iframe);
     
-      // Add click event to the button
-      button.onclick = function () {
-        // Play the video using the Vimeo Player API
-        player.play().then(() => {
-          console.log("Video is playing");
-          // Hide the button after the video starts playing
-          button.style.display = 'none';
-        }).catch((error) => {
-          console.error("Error playing the video:", error);
-        });
-      };
-    }
+  //     // Add click event to the button
+  //     button.onclick = function () {
+  //       // Play the video using the Vimeo Player API
+  //       player.play().then(() => {
+  //         console.log("Video is playing");
+  //         // Hide the button after the video starts playing
+  //         button.style.display = 'none';
+  //       }).catch((error) => {
+  //         console.error("Error playing the video:", error);
+  //       });
+  //     };
+  //   }
+  // },
+  initializeVimeoPlayer() {
+    var button = document.getElementById("play-btn");
+    var iframe = document.getElementById("vimeo-video");
+    var player = new Vimeo.Player(iframe);
+
+    button.onclick = function() {
+      iframe.src = iframe.src.replace("autoplay=0", "autoplay=1");
+      iframe.src = iframe.src.replace("controls=0", "controls=1");
+      // Play the video using the Vimeo Player API
+      player.play().then(() => {
+        console.log("Video is playing");
+        // Hide the button after the video starts playing
+        button.style.display = 'none';
+      }).catch((error) => {
+        console.error("Error playing the video:", error);
+      });
+      button.style.display = 'none';
+    };
   },
+},
   mounted() {
     this.initializeSwiper();
     this.setupVimeoPlayer();
