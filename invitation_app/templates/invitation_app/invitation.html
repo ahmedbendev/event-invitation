@@ -60,7 +60,7 @@
                         Bab Ezzouar. 
                     </div>
                 </div>
-                <div class="video-frame">
+                <!-- <div class="video-frame">
                     <button id="play-btn">
                         <img src="{% static 'images/play-icon.png' %}" alt="Sample Image" class="play-btn-icon"> 
                     </button>
@@ -68,6 +68,18 @@
                         src="{{invitation.video_link}}?autoplay=0&loop=0&title=0&byline=0&portrait=0&controls=0&transparent=0" 
                         frameborder="0" 
                         allow="autoplay; fullscreen" 
+                        allowfullscreen>
+                    </iframe>
+                </div> -->
+                <div class="video-frame">
+                    <button id="play-btn">
+                        <img src="{% static 'images/play-icon.png' %}" alt="Play" class="play-btn-icon">
+                    </button>
+                    <iframe
+                        id="vimeo-video"
+                        src="{{invitation.video_link}}?autoplay=0&loop=0&title=0&byline=0&portrait=0&controls=0&transparent=0"
+                        frameborder="0"
+                        allow="autoplay; fullscreen"
                         allowfullscreen>
                     </iframe>
                 </div>

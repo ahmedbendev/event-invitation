@@ -82,7 +82,7 @@ var app = new Vue({
                 setTimeout(() => {
                   this.successMessage = '';
                   this.errorMessage = '';
-                }, 3000); 
+                }, 5000); 
             });
     },
     resetForm() {
@@ -110,16 +110,24 @@ var app = new Vue({
       }
     },
     initializeVimeoPlayer() {
-      var button = document.getElementById("play-btn");
-      var iframe = document.getElementById("vimeo-video");
-      var player = new Vimeo.Player(iframe);
-
-      button.onclick = function() {
-        iframe.src = iframe.src.replace("autoplay=0", "autoplay=1");
-        iframe.src = iframe.src.replace("controls=0", "controls=1");
-        button.style.display = 'none';  // Hide button after click
+      const button = document.getElementById("play-btn");
+      const iframe = document.getElementById("vimeo-video");
+    
+      // Initialize the Vimeo Player
+      const player = new Vimeo.Player(iframe);
+    
+      // Add click event to the button
+      button.onclick = function () {
+        // Play the video using the Vimeo Player API
+        player.play().then(() => {
+          console.log("Video is playing");
+          // Hide the button after the video starts playing
+          button.style.display = 'none';
+        }).catch((error) => {
+          console.error("Error playing the video:", error);
+        });
       };
-    },
+    }
   },
   mounted() {
     this.initializeSwiper();
