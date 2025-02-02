@@ -35,9 +35,9 @@ class InvitationAdmin(admin.ModelAdmin):
 
 
 class ConfirmationAdmin(admin.ModelAdmin):
-    list_display = ('first_name', 'last_name', 'phone_number', 'invitation_type','agreed_to_terms',  'confirmed_at')
-    search_fields = ('first_name', 'last_name', 'phone_number')
-    list_filter = ('confirmed', 'invitation_type')  # Filter confirmations based on 'confirmed' status and invitation type
+    list_display = ('first_name', 'last_name', 'phone_number','email', 'invitation_type','agreed_to_terms',  'confirmed_at')
+    search_fields = ('first_name', 'last_name', 'phone_number','email')
+    list_filter = ('agreed_to_terms', 'invitation_type')  # Filter confirmations based on 'confirmed' status and invitation type
 
 # Registering the models in the admin interface
 admin.site.register(Confirmation, ConfirmationAdmin)

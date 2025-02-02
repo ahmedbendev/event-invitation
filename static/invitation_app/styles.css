@@ -443,7 +443,6 @@ input[type="checkbox"]:checked:after {
 }
 .checkbox-label {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     width: 100%;
 }
@@ -451,6 +450,7 @@ input[type="checkbox"]:checked:after {
     color: black;
     font-size: 1.7vh;
     font-weight: 500;
+    margin-left: 15px;
 }
 .terms-condition-link {
     border-bottom: 1px solid;
@@ -468,26 +468,24 @@ input[type="checkbox"]:checked:after {
     color: #00ff7f;
     font-weight: 700;
     letter-spacing: 1px;
-    margin-bottom: 2vh;
+    margin-bottom: 3vh;
 }
 .programme-info-item {
-    display: flex
-;
+    display: flex;
     width: 100%;
     justify-content: space-between;
-    margin-bottom: 1vh;
+    margin-bottom: 2vh;
 }
 .programme-info-item-text {
     font-size: 1.8vh;
 }
 .rsvp-title {
-    margin-top: 3vh;
+    margin-top: 2vh;
     font-size: 2vh;
     color: #00ff7f;
     font-weight: 700;
     letter-spacing: 1px;
-    margin-bottom: 2vh;
-    width: 80%;
+    margin-bottom: 1.5vh;
 }
 .rsvp-text {
     font-size: 1.8vh;
@@ -510,18 +508,20 @@ input[type="checkbox"]:checked:after {
     margin-right: 10px;
 }
 .email-icon {
-    width: 20px;
+    width: 15px;
 }
 .phone-icon {
-    width: 20px;
+    width: 15px;
 }
 .contact-info-item-text {
-    width: 140px;
-    font-size: 2vh;
+    font-size: 1.7vh;
+    display: flex;
+    justify-content: flex-start;
+    width: 120px;
 }
 
 img.event-logo {
-    width: 12vh;
+    width: 15vh;
 }
 .footer-section {
     margin-top: 2vh;
@@ -565,14 +565,14 @@ img.event-logo {
 }
 
 .rsvp-section {
-    display: flex
-;
+    display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 }
 .powerd-by-text{
-    font-size: 1vh;
-    margin-bottom: 0.5vh;
+    font-size: 1.5vh;
+    margin-bottom: 1vh;
 }
 .beyn-logo {
     width: 8vh;
@@ -593,4 +593,10 @@ img.event-logo {
 .programme-info-item-time-second {
     width: 45px;
     text-align: end;
+}
+
+.top-header {
+    display: flex;
+    width: 100%;
+    align-items: center;
 }

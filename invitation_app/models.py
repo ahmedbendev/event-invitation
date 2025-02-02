@@ -62,7 +62,6 @@ class Confirmation(models.Model):
     confirmed_at = models.DateTimeField(auto_now_add=True)
     agreed_to_terms = models.BooleanField(default=False)  # Checkbox for agreement
     invitation_type = models.CharField(max_length=50)  # Add this field
-    confirmed = models.BooleanField(default=False)  # Add this field
     created_at = models.DateTimeField(auto_now_add=True)  # Add this field
 
     def __str__(self):
