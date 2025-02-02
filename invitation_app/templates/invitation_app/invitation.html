@@ -97,6 +97,10 @@
                             <input type="text" id="phoneNumber" v-model="form.phoneNumber" required>
                         </div>
                         <div class="form-group">
+                            <label for="email" class="confirmation-lable">Email</label>
+                            <input type="email" id="email" v-model="form.email" required>
+                        </div>
+                        <div class="form-group">
                             <div class="checkbox-label">
                                 <input type="checkbox" v-model="form.agreedToTerms" required>
                                 <h2 class="terms-condition-text">J'accepte <span class="terms-condition-link" v-on:click="showTermsCondition">les termes et conditions</span></h2>
@@ -136,31 +140,59 @@
                     <div class="programme-info">
                         <div class="programme-info-item">
                             <div class="programme-info-item-text">Accueil des invités</div>
-                            <div class="programme-info-item-time">18h00 - 18h15</div>
+                            <div class="programme-info-item-time">
+                                <span class="programme-info-item-time-first">18h00</span>
+                                <span>-</span>
+                                <span class="programme-info-item-time-second">18h15</span>
+                            </div>
                         </div>
                         <div class="programme-info-item">
                             <div class="programme-info-item-text">Exposition & Networking</div>
-                            <div class="programme-info-item-time">18h15 - 18h45</div>
+                            <div class="programme-info-item-time">
+                                <span class="programme-info-item-time-first">18h15</span>
+                                <span>-</span>
+                                <span class="programme-info-item-time-second">18h45</span>
+                            </div>
                         </div>
                         <div class="programme-info-item">
                             <div class="programme-info-item-text">Discours d’ouverture</div>
-                            <div class="programme-info-item-time">18h45 - 19h00</div>
+                            <div class="programme-info-item-time">
+                                <span class="programme-info-item-time-first">18h45</span>
+                                <span>-</span>
+                                <span class="programme-info-item-time-second">19h00</span>
+                            </div>
                         </div>
                         <div class="programme-info-item">
                             <div class="programme-info-item-text">Notre histoire, notre vision</div>
-                            <div class="programme-info-item-time">19h00 - 19h05</div>
+                            <div class="programme-info-item-time">
+                                <span class="programme-info-item-time-first">19h00</span>
+                                <span>-</span>
+                                <span class="programme-info-item-time-second">19h05</span>
+                            </div>
                         </div>
                         <div class="programme-info-item">
                             <div class="programme-info-item-text">le paiement mobile</div>
-                            <div class="programme-info-item-time">19h05 - 19h35</div>
+                            <div class="programme-info-item-time">
+                                <span class="programme-info-item-time-first">19h05</span>
+                                <span>-</span>
+                                <span class="programme-info-item-time-second">19h35</span>
+                            </div>
                         </div>
                         <div class="programme-info-item">
                             <div class="programme-info-item-text">Pause musicale </div>
-                            <div class="programme-info-item-time">19h35 - 20h10</div>
+                            <div class="programme-info-item-time">
+                                <span class="programme-info-item-time-first">19h35</span>
+                                <span>-</span>
+                                <span class="programme-info-item-time-second">20h10</span>
+                            </div>
                         </div>
                         <div class="programme-info-item">
                             <div class="programme-info-item-text">Dîner gastronomique</div>
-                            <div class="programme-info-item-time">20h30 - 21h30</div>
+                            <div class="programme-info-item-time">
+                                <span class="programme-info-item-time-first">20h30</span>
+                                <span>-</span>
+                                <span class="programme-info-item-time-second">21h30</span>
+                            </div>
                         </div>
                     </div>
                 </div>

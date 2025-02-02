@@ -5,13 +5,13 @@ from django.core.files.base import ContentFile
 
 class Invitation(models.Model):
     TYPE_CHOICES = [
-        ('partner', 'partner'),
-        ('friend', 'friend'),
-        ('prospect', 'prospect'),
+        ('partenaires', 'partenaires'),
+        ('prospects', 'prospects'),
+        ('amis', 'amis'),
     ]
 
     type = models.CharField(
-        max_length=10, 
+        max_length=20, 
         choices=TYPE_CHOICES, 
         unique=True  # Ensures only one invitation per type
     )
@@ -58,6 +58,7 @@ class Confirmation(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     phone_number = models.CharField(max_length=15)
+    email = models.EmailField()
     confirmed_at = models.DateTimeField(auto_now_add=True)
     agreed_to_terms = models.BooleanField(default=False)  # Checkbox for agreement
     invitation_type = models.CharField(max_length=50)  # Add this field

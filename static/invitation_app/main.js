@@ -11,6 +11,7 @@ var app = new Vue({
             firstName: '',
             lastName: '',
             phoneNumber: '',
+            email:'',
             agreedToTerms: false,
             invitationType: invitationType,
         },
@@ -28,7 +29,7 @@ var app = new Vue({
           el: '.swiper-pagination',
           clickable: true,
         },
-        loop: true,
+        loop: false,
       });
     },
     goToNextSlide() {
@@ -51,6 +52,7 @@ var app = new Vue({
             first_name: this.form.firstName,
             last_name: this.form.lastName,
             phone_number: this.form.phoneNumber,
+            email: this.form.email,
             agreed_to_terms: this.form.agreedToTerms,
         };
         console.log("formData",formData);
@@ -88,6 +90,7 @@ var app = new Vue({
             firstName: '',
             lastName: '',
             phoneNumber: '',
+            email:'',
             agreedToTerms: false,
             invitationType: invitationType,
         };
