@@ -25,7 +25,7 @@ class Invitation(models.Model):
     @property
     def unique_url(self):
         """Generate a unique URL based on the type with full domain."""
-        base_url = "https://beyn20years.pythonanywhere.com" 
+        base_url = "https://baynanawabaynakoum.beyn.io" 
         return f"{base_url}/invitation/{self.type.lower()}"
 
     def save(self, *args, **kwargs):
