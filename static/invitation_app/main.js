@@ -21,15 +21,18 @@ var app = new Vue({
   },
   methods: {
     initializeSwiper() {
-        console.log(this.form);
-        
-      // Initialize Swiper instance
       this.swiper = new Swiper('.swiper-container', {
         pagination: {
           el: '.swiper-pagination',
           clickable: true,
         },
         loop: false,
+        on: {
+          // Reinitialize the Vimeo player on slide change
+          slideChange: () => {
+            this.initializeVimeoPlayer();
+          },
+        },
       });
     },
     goToNextSlide() {
