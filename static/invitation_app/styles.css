@@ -97,13 +97,13 @@ a {
     border: none;
     border-radius: 0px;
     cursor: pointer;
-    font-size: 1.8vh;
+    font-size: 1.7vh;
     background: none;
     border-bottom: 2px solid #ffffff;
     padding-bottom: 5px;
     display: flex;
     align-items: center;
-    text-transform: uppercase;
+    text-transform: capitalize;
 }
 .arrow-icon {
     height: 15px;
@@ -113,10 +113,10 @@ a {
 .confirme-btn {
     padding: 10px 15px;
     background: none;
-    border: 2px solid;
-    color: #00FF7F;
+    border: none;
+    background: #00FF7F;
     border-radius: 2px;
-    font-size: 1.8vh;
+    font-size: 1.7vh;
     cursor: pointer;
 }
 /* Modal Styles */
@@ -241,7 +241,7 @@ body, html {
     justify-content: space-between;
     align-items: center;
     /* margin-bottom: 2vh; */
-    height: 18vw;
+    height: 18.7vw;
     width: 100%;
 }
 .text-left {
@@ -456,6 +456,7 @@ input[type="checkbox"]:checked:after {
     border-bottom: 1px solid;
     padding-bottom: 1px;
     font-weight: 600;
+    cursor: pointer;
 }
 .terms-condition-email {
     text-decoration: underline;
@@ -599,4 +600,99 @@ img.event-logo {
     display: flex;
     width: 100%;
     align-items: center;
+}
+.swiper-pagination-bullet {
+    background: white !important;
+    opacity: 1 !important;
+}
+.swiper-pagination-bullet.swiper-pagination-bullet-active{
+    background: #00ff7f !important;
+}
+
+@media (min-width: 600px){
+    .swiper-slide{
+        display: flex !important;
+        align-items: center !important;
+    }
+    .letter{
+        width: 500px;
+    }
+    .dual-text-container {
+        background: url(/static/images/date-bg-2.png) no-repeat center center / cover;
+        width: 500px;
+        height: 86px;
+        margin-bottom: 1vh;
+        padding: 10px 20px;
+    }
+    .video-frame {
+        width: 500px;
+        max-width: 600px;
+        overflow: visible;
+    }
+    .btns-section{
+        width: 500px;
+    }
+    .image-container{
+        margin-bottom: 1vh;
+    }
+    .paragraph {
+        width: 100%;
+        font-size: 1.8vh;
+        text-align: justify;
+        line-height: 1.4;
+        font-weight: 400;
+        height: auto;
+    }
+    .text-two {
+        font-size: 2vh;
+    }
+    .modal-content {
+        width: 500px;
+    }
+    .programme-container {
+        width: 500px !important;
+    }
+    .programme-info-item-time {
+        font-size: 2vh;
+    }
+    .programme-info-item-text {
+        font-size: 2vh;
+    }
+    .footer-section {
+        width: 500px;
+    }
+    .event-logo {
+        width: 20vh;
+    }
+    .powerd-by-text {
+        font-size: 1.8vh;
+    }
+    .beyn-logo {
+        width: 13vh;
+    }
+    .contact-info-item {
+        margin-bottom: 1.5vh;
+    }
+    .contact-info-item-icon {
+        margin-right: 10px;
+    }
+    .email-icon {
+        width: 20px;
+    }
+    .contact-info-item-text {
+        font-size: 2vh;
+        width: 200px;
+    }
+    .contact-info-item-icon {
+        margin-right: 20px;
+    }
+    .swiper-slide-one{
+        background: url('/static/images/slide-1-desktop.jpg') no-repeat center center/cover; 
+        padding: 30px;
+        padding-bottom: 12vh;
+    }
+    .swiper-slide-two{
+        background: url('/static/images/slide-3-desktop.png') no-repeat center center/cover; 
+        padding: 30px;
+    }
 }
