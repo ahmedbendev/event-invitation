@@ -29,9 +29,9 @@ var app = new Vue({
         loop: false,
         on: {
           // Reinitialize the Vimeo player on slide change
-          slideChange: () => {
-            this.initializeVimeoPlayer();
-          },
+          // slideChange: () => {
+          //   this.initializeVimeoPlayer();
+          // },
         },
       });
     },
