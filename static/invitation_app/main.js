@@ -27,12 +27,6 @@ var app = new Vue({
           clickable: true,
         },
         loop: false,
-        on: {
-          // Reinitialize the Vimeo player on slide change
-          // slideChange: () => {
-          //   this.initializeVimeoPlayer();
-          // },
-        },
       });
     },
     goToNextSlide() {
@@ -40,14 +34,20 @@ var app = new Vue({
         this.swiper.slideNext();  // Move to the next slide
       }
     },
-    openModal() {
-      document.getElementById("confirmationModal").style.display = "flex";
+    goToPreviousSlide() {
+      if (this.swiper) {
+        this.swiper.slidePrev();
+      }
+    },
+    openModal(id) {
+      document.getElementById(id).style.display = "flex";
     },
     closeModal() {
-      document.getElementById("confirmationModal").style.display = "none";
+      document.getElementById('confirmationModal1').style.display = "none";
+      document.getElementById('confirmationModal2').style.display = "none";
     },
-    showTermsCondition() {
-      document.getElementById("terms-and-conditions").style.display = "block";
+    showTermsCondition(id) {
+      document.getElementById(id).style.display = "block";
     },
     submitForm() {
         const formData = {
@@ -155,6 +155,5 @@ var app = new Vue({
   mounted() {
     this.initializeSwiper();
     this.setupVimeoPlayer();
-    document.getElementById("openModalBtn").onclick = this.openModal;
   },
 });
