@@ -103,7 +103,6 @@ a {
     padding-bottom: 5px;
     display: flex;
     align-items: center;
-    text-transform: capitalize;
 }
 .arrow-icon {
     height: 15px;
@@ -655,6 +654,7 @@ img.event-logo {
     }
     .programme-info-item-time {
         font-size: 2vh;
+        width: 150px;
     }
     .programme-info-item-text {
         font-size: 2vh;
@@ -695,5 +695,13 @@ img.event-logo {
     .swiper-slide-two{
         background: url('/static/images/slide-3-desktop.png') no-repeat center center/cover; 
         padding: 30px;
+    }
+    .programme-info-item-time-first {
+        width: 60px;
+        text-align: start;
+    }
+    .programme-info-item-time-second {
+        width: 60px;
+        text-align: end;
     }
 }
