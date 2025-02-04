@@ -118,6 +118,7 @@ a {
     border-radius: 2px;
     font-size: 1.7vh;
     cursor: pointer;
+    color: #141516;
 }
 /* Modal Styles */
 .modal {
