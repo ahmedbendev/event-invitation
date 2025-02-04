@@ -36,3 +36,12 @@ class InvitationSubmissionView(APIView):
             return Response({'message': 'Invitation submitted successfully!'}, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
+from django.contrib.auth.decorators import login_required
+@login_required
+def confirmation_table(request):
+    # Fetch all confirmation records from the database
+    confirmations = Confirmation.objects.all().order_by('-created_at')
+    
+    # Pass the confirmations to the template
+    return render(request, 'invitation_app/confirmation.html', {'confirmations': confirmations})
