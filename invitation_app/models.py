@@ -8,6 +8,7 @@ class Invitation(models.Model):
         ('partenaires', 'partenaires'),
         ('prospects', 'prospects'),
         ('amis', 'amis'),
+        ('invités','invités')
     ]
 
     type = models.CharField(
