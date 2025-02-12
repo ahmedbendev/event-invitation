@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Confirmation
+from .models import Confirmation,Declination
 
 class ConfirmationSerializer(serializers.ModelSerializer):
     class Meta:
@@ -11,3 +11,12 @@ class ConfirmationSerializer(serializers.ModelSerializer):
         if 'email' not in validated_data:
             raise serializers.ValidationError("Email is required.")
         return Confirmation.objects.create(**validated_data)
+    
+
+
+
+class DeclinationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Declination
+        fields = ['invitation_type', 'first_name', 'last_name', 'phone_number']
+        

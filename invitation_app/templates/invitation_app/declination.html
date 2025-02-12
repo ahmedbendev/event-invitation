@@ -73,33 +73,31 @@
 </head>
 <body>
     <div class="head-navigation">
-        <h1 class="image-container">Liste des confirmations: {{ confirmations.count }}</h1>
-        <a href="{% url 'declination_table' %}" class="navigation-head">
-            Liste des déclinaisons
+        <h1 class="image-container">
+            Liste des déclinaisons: {{ declinations.count }} 
+        </h1>
+        <a href="{% url 'confirmation_table' %}" class="navigation-head">
+            Liste des confirmations
         </a>
     </div>
-    <table id="confirmationsTable">
+    <table id="declinationsTable">
         <thead>
             <tr>
                 <th>Prénom</th>
                 <th>Nom</th>
                 <th>Numéro de téléphone</th>
-                <th>Email</th>
-                <th>Confirmé le (Heure GMT)</th>
-                <th>Acceptation des conditions</th>
+                <th>Décline le (Heure GMT)</th>
                 <th>Type d'invitation</th>
             </tr>
         </thead>
         <tbody>
-            {% for confirmation in confirmations %}
+            {% for declination in declinations %}
             <tr>
-                <td>{{ confirmation.first_name }}</td>
-                <td>{{ confirmation.last_name }}</td>
-                <td>{{ confirmation.phone_number }}</td>
-                <td>{{ confirmation.email }}</td>
-                <td>{{ confirmation.confirmed_at }}</td>
-                <td>{{ confirmation.agreed_to_terms|yesno:"Yes,No" }}</td>
-                <td>{{ confirmation.invitation_type }}</td>
+                <td>{{ declination.first_name }}</td>
+                <td>{{ declination.last_name }}</td>
+                <td>{{ declination.phone_number }}</td>
+                <td>{{ declination.declined_at }}</td>
+                <td>{{ declination.invitation_type }}</td>
             </tr>
             {% endfor %}
         </tbody>
@@ -112,17 +110,17 @@
         // Function to export table data to CSV
         function exportToExcel() {
             // Get the table element
-            const table = document.getElementById("confirmationsTable");
+            const table = document.getElementById("declinationsTable");
         
             // Convert the table to a worksheet
             const worksheet = XLSX.utils.table_to_sheet(table);
         
             // Create a new workbook
             const workbook = XLSX.utils.book_new();
-            XLSX.utils.book_append_sheet(workbook, worksheet, "Confirmations");
+            XLSX.utils.book_append_sheet(workbook, worksheet, "Déclinaisons");
         
             // Generate the Excel file and trigger download
-            XLSX.writeFile(workbook, "confirmations.xlsx");
+            XLSX.writeFile(workbook, "Déclinaisons.xlsx");
         }
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>

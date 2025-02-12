@@ -45,6 +45,8 @@ var app = new Vue({
     closeModal() {
       document.getElementById('confirmationModal1').style.display = "none";
       document.getElementById('confirmationModal2').style.display = "none";
+      document.getElementById('declinationModal1').style.display = "none";
+      document.getElementById('declinationModal2').style.display = "none";
     },
     showTermsCondition(id) {
       document.getElementById(id).style.display = "block";
@@ -64,6 +66,42 @@ var app = new Vue({
             .then(response => {
                 console.log('Invitation submitted successfully:', response.data);
                 this.successMessage = 'Merci pour votre confirmation. Nous vous attendons avec impatience !';
+                this.errorMessage = '';
+                this.closeModal();
+                this.resetForm();
+                // Hide success / error message after 3 seconds
+                setTimeout(() => {
+                  this.successMessage = '';
+                  this.errorMessage = '';
+                }, 3000); 
+            })
+            .catch(error => {
+                console.error('Error submitting invitation:', error);
+                this.successMessage = '';
+                if (error.response && error.response.data.errors) {
+                    this.errorMessage = 'Veuillez corriger les erreurs suivantes :';
+                } else {
+                    this.errorMessage = 'Une erreur est survenue. Veuillez réessayer.';
+                }
+                // Hide success / error message after 3 seconds
+                setTimeout(() => {
+                  this.successMessage = '';
+                  this.errorMessage = '';
+                }, 5000); 
+            });
+    },
+    declineForm() {
+      const formData = {
+          invitation_type: this.form.invitationType,
+          first_name: this.form.firstName,
+          last_name: this.form.lastName,
+          phone_number: this.form.phoneNumber,
+      };
+      console.log("formData",formData);
+        axios.post(declinationUrl,formData)
+            .then(response => {
+                console.log('Invitation declined successfully:', response.data);
+                this.successMessage = 'Vous avez décliné invitation. Nous espérons vous voir une prochaine fois';
                 this.errorMessage = '';
                 this.closeModal();
                 this.resetForm();

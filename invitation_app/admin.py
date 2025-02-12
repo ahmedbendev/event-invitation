@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe  # Import mark_safe for rendering HTML in admin
-from .models import Invitation, Confirmation
+from .models import Invitation, Confirmation, Declination
 
 @admin.register(Invitation)
 class InvitationAdmin(admin.ModelAdmin):
@@ -41,3 +41,12 @@ class ConfirmationAdmin(admin.ModelAdmin):
 
 # Registering the models in the admin interface
 admin.site.register(Confirmation, ConfirmationAdmin)
+
+
+class DeclinationAdmin(admin.ModelAdmin):
+    list_display = ('first_name', 'last_name', 'phone_number', 'invitation_type',  'declined_at')
+    search_fields = ('first_name', 'last_name', 'phone_number')
+
+# Registering the models in the admin interface
+admin.site.register(Declination, DeclinationAdmin)
+

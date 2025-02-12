@@ -66,4 +66,17 @@ class Confirmation(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)  # Add this field
 
     def __str__(self):
+        return f"{self.first_name} {self.last_name}"    
+
+
+
+class Declination(models.Model):
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    phone_number = models.CharField(max_length=15)
+    declined_at = models.DateTimeField(auto_now_add=True)
+    invitation_type = models.CharField(max_length=50)  # Add this field
+    created_at = models.DateTimeField(auto_now_add=True)  # Add this field
+
+    def __str__(self):
         return f"{self.first_name} {self.last_name}"

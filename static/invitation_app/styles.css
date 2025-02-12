@@ -363,7 +363,17 @@ input#email{
     align-items: flex-start;
     margin-bottom: 1.5vh;
 }
-
+.submit-decline-btn{
+    padding: 10px 15px;
+    border: none;
+    background: #fa7e7e;
+    border-radius: 2px;
+    font-size: 16px;
+    cursor: pointer;
+    color: #000000;
+    width: 55%;
+    font-weight: 500 !important;
+}
 .submit-confimration-btn{
     padding: 10px 15px;
     border: none;
@@ -622,6 +632,17 @@ img.event-logo {
     font-style: italic;
     margin-top: 4px;
 }
+.decline-btn {
+    padding: 10px 15px;
+    background: none;
+    border: none;
+    background: #fa7e7e;
+    border-radius: 2px;
+    font-size: 1.7vh;
+    cursor: pointer;
+    color: #141516;
+}
+
 
 @media (min-width: 600px){
     .swiper-slide{

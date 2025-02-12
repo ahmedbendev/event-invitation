@@ -1,6 +1,6 @@
 
 from django.shortcuts import render
-from .models import Confirmation,Invitation
+from .models import Confirmation,Invitation,Declination
 from .forms import ConfirmationForm
 from django.contrib import messages
 from django.shortcuts import get_object_or_404
@@ -8,7 +8,7 @@ from django.shortcuts import get_object_or_404
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from .serializers import ConfirmationSerializer
+from .serializers import ConfirmationSerializer,DeclinationSerializer
 
 
 
@@ -35,6 +35,19 @@ class InvitationSubmissionView(APIView):
             serializer.save()
             return Response({'message': 'Invitation submitted successfully!'}, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+
+class InvitationDeclinationView(APIView):
+    def post(self, request):
+        # Deserialize the incoming data
+        serializer = DeclinationSerializer(data=request.data)
+
+        # Check if the data is valid
+        if serializer.is_valid():
+            # Save the data to the database
+            serializer.save()
+            return Response({'message': 'Invitation submitted successfully!'}, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 from django.contrib.auth.decorators import login_required
@@ -45,3 +58,13 @@ def confirmation_table(request):
     
     # Pass the confirmations to the template
     return render(request, 'invitation_app/confirmation.html', {'confirmations': confirmations})
+
+
+
+@login_required
+def declination_table(request):
+    # Fetch all confirmation records from the database
+    declinations = Declination.objects.all().order_by('-created_at')
+    
+    # Pass the confirmations to the template
+    return render(request, 'invitation_app/declination.html', {'declinations': declinations})
