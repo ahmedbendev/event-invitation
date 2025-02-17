@@ -80,3 +80,13 @@ class Declination(models.Model):
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
+    
+class Review(models.Model):
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    rating = models.IntegerField(default=5)
+    msg = models.CharField(max_length=1000, blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)  # Add this field
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"

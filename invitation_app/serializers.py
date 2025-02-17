@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Confirmation,Declination
+from .models import Confirmation,Declination,Review
 
 class ConfirmationSerializer(serializers.ModelSerializer):
     class Meta:
@@ -20,3 +20,7 @@ class DeclinationSerializer(serializers.ModelSerializer):
         model = Declination
         fields = ['invitation_type', 'first_name', 'last_name', 'phone_number']
         
+class ReviewSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Review
+        fields = ['first_name', 'last_name', 'rating','msg']

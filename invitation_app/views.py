@@ -8,7 +8,7 @@ from django.shortcuts import get_object_or_404
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from .serializers import ConfirmationSerializer,DeclinationSerializer
+from .serializers import ConfirmationSerializer,DeclinationSerializer,ReviewSerializer
 
 
 
@@ -68,3 +68,26 @@ def declination_table(request):
     
     # Pass the confirmations to the template
     return render(request, 'invitation_app/declination.html', {'declinations': declinations})
+
+
+
+
+class EventAddReviewView(APIView):
+    def post(self, request):
+        print("sdadas")
+        print("Request data:", request.data)
+        # Deserialize the incoming data
+        serializer = ReviewSerializer(data=request.data)
+
+        # Check if the data is valid
+        if serializer.is_valid():
+            # Save the data to the database
+            serializer.save()
+            return Response({'message': 'Reveiw submitted successfully!'}, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+
+
+def add_review(request):    
+    # Pass the confirmations to the template
+    return render(request, 'invitation_app/review.html')
